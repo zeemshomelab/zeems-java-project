@@ -1,0 +1,17 @@
+{
+    "jenkins-runner.jobs": {
+        "zeems-java-app": {
+            "isDefault": true,
+            "runWith": "jenkins-master",
+            "name": "zeems-java-app",
+        }
+    },
+    "jenkins-runner.hostConfigs": {
+        "jenkins-master": {
+            "url": "https://jenkins.local.zeemshomelab.com",
+            "user": "zeemshome",
+            "password": "qwerty",
+            "useCrumbIssuer": true,
+        }
+    }
+}
