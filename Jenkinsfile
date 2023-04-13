@@ -18,8 +18,7 @@ pipeline{
                     when { expression {  params.action == 'create' } }
             steps{
             gitCheckout(
-                branch: "main",
-                url: "https://github.com/zeemshomelab/zeems-java-project.git"
+                git branch: 'main', credentialsId: 'githubtoken', url: 'https://github.com/zeemshomelab/zeems-java-project.git'
             )
             }
         }
