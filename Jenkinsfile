@@ -112,8 +112,9 @@ pipeline{
          when { expression {  params.action == 'create' } }
             steps{
                script{
-                   
-                   sh 'kubectl apply -f /zeems/deployment.yaml'
+                   sh "docker --version"
+                   sh "mvn --version"
+                //    sh 'kubectl apply -f /zeems/deployment.yaml'
                }
             }
         }      
