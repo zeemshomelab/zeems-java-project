@@ -13,16 +13,25 @@ pipeline{
     }
 
     stages{
-         
-        stage('Git Checkout'){
+        stage('Clean Work Space'){
                     when { expression {  params.action == 'create' } }
             steps{
-            gitCheckout(
-                branch: "main",
-                url: "https://github.com/zeemshomelab/zeems-java-project.git"
-            )
+                script{
+                    cleanWs()
+                }
+            
             }
         }
+         
+        // stage('Git Checkout'){
+        //             when { expression {  params.action == 'create' } }
+        //     steps{
+        //     gitCheckout(
+        //         branch: "main",
+        //         url: "https://github.com/zeemshomelab/zeems-java-project.git"
+        //     )
+        //     }
+        // }
          stage('Unit Test maven'){
          
          when { expression {  params.action == 'create' } }
