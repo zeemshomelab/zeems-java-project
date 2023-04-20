@@ -107,6 +107,15 @@ pipeline{
                    dockerImageCleanup("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
                }
             }
+        } 
+        stage('Deployment to Kubernetes Cluster'){
+         when { expression {  params.action == 'create' } }
+            steps{
+               script{
+                   
+                   sh 'kubectl apply -f /zeems/deployment.yaml'
+               }
+            }
         }      
     }
 }
